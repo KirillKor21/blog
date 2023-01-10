@@ -23,5 +23,3 @@ services:
       - '5000:5000'
     depends_on:
       - database
-    stdin_open: true
-    tty: true
