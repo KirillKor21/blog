@@ -19,8 +19,7 @@ def user(name, id):
     return "User is " + name + " id is " + str(id)
 
 
-if __name__ == "__name__":
-    app.run(debug=True)
+print("Hello")
 
 
-
+app.run()
