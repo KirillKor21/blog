@@ -9,3 +9,4 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip3 install -r requirements.txt
 
+ENTRYPOINT ["bash"]
