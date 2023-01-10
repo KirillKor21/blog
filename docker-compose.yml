@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  database:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./date_postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  app:
+    container_name: my_blog
+    image: kirillkrot21/my_blog:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./my_blog_vol:/home/my_blog
+    ports:
+      - '5000:5000'
+    depends_on:
+      - database
