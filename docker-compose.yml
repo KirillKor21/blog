@@ -15,6 +15,7 @@ services:
 
   app:
     container_name: my_blog_conn
+    image: kirillkrot21/my_blog:v1
     build:
       context: .
       dockerfile: Dockerfile
@@ -24,3 +25,5 @@ services:
       - ./my_blog_vol:/home/my_blog
     depends_on:
       - database
+    stdin_open: true
+    tty: true
