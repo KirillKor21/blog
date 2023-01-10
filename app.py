@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 
 db = SQLAlchemy()
@@ -11,7 +12,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:secret@192.168.31
 db.init_app(app)
 
 
-class User(db.Model):
+
+class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), nullable=False)
     text = db.Column(db.String(64))
@@ -29,7 +31,7 @@ messages = {}
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template("index.html", messages=User.query.all())
+    return render_template("index.html", messages=Note.query.all())
 
 
 @app.route("/add_message", methods=['POST'])
@@ -37,13 +39,11 @@ def add_message():
     name = request.form['name']
     text = request.form['text']
 
-    messages = User(username=name, text=text)
+    messages = Note(username=name, text=text)
     db.session.add(messages)
     db.session.commit()
 
     return redirect("/")
-
-
 
 
 app.run(host="0.0.0.0")
