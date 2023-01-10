@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y python3 && apt install -y python3.10-ve
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip3 install -r requirements.txt
-
-RUN pycodestyle --first --ignore=errors app.py && bandit --exit-zero app.py 
+RUN bandit --exit-zero app.py 
+RUN pycodestyle --first --ignore=errors app.py
 
 
 CMD ["python", "app.py"]
