@@ -22,4 +22,4 @@ def user(name, id):
 print("Hello")
 
 
-app.run()
+app.run(host="0.0.0.0")
