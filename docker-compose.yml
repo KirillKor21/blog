@@ -15,7 +15,6 @@ services:
 
   app:
     container_name: my_blog_conn
-    image: kirillkrot21/my_blog:v1
     build:
       context: .
       dockerfile: Dockerfile
