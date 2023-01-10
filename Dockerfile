@@ -9,4 +9,4 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip3 install -r requirements.txt
 
-RUN flask.exe --app .\app.py run
+RUN flask --app .\app.py run
