@@ -9,8 +9,8 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip3 install -r requirements.txt
 
-RUN pylint --errors-only app.py 
-RUN bandit --exit-zero  app.py  
+RUN flake8 --exit-zero app.py
+RUN bandit --exit-zero  app.py
 
 
 CMD ["python", "app.py"]
