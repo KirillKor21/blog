@@ -3,4 +3,15 @@
 
 {% block body %}
 <h1>Главная страница тут </h1>
+
+<form method="post" action="/add_message">
+  <input type="text" name="name"><br>
+  <input type="text" name="text">
+  <button type="submit"> Add message </button>
+</form>
+
+{% for message in messages %}
+<h3><div>{{ message.username }} : {{ message.text }}</div></h3>
+{% endfor %}
+
 {% endblock %}
