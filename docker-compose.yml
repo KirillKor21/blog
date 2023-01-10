@@ -21,8 +21,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - '5000:5000'
-    volumes:
-      - ./my_blog_vol:/home/my_blog
     depends_on:
       - database
     stdin_open: true
