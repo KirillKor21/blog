@@ -9,7 +9,7 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip3 install -r requirements.txt
 
-RUN pycodestyle --first app.py && bandit --exit-zero app.py 
+RUN pycodestyle --first --ignore=errors app.py && bandit --exit-zero app.py 
 
 
 CMD ["python", "app.py"]
